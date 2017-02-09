@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-feb-2017 19:56:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dawrentinghibernate.Rental" table="rental" catalog="renting" optimistic-lock="version">
+        <id name="idrental" type="java.lang.Integer">
+            <column name="idrental" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="car" class="dawrentinghibernate.Car" fetch="select">
+            <column name="car" length="8" not-null="true" />
+        </many-to-one>
+        <many-to-one name="city" class="dawrentinghibernate.City" fetch="select">
+            <column name="city" length="5" not-null="true" />
+        </many-to-one>
+        <property name="customer" type="string">
+            <column name="customer" length="60" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
